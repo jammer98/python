@@ -75,7 +75,8 @@ for d in data:
     try:
         s = Student(d["name"], d["score"])
         students.append(s)
-    except (KeyError, ValueError, TypeError):
+    except (KeyError, ValueError, TypeError) as e:
+        print(f"skipping bad record: {d} ({type(e).__name__})")
         continue
 
 results = []
